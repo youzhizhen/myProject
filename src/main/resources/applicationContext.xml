@@ -6,9 +6,20 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.liying"/>
-	<alias name="userService" alias="test"/>
-	<bean id="clientService" class="com.liying.service.ClientService" factory-method="createInstance"/>
+	<context:component-scan base-package="com.liying" />
+	<alias name="userService" alias="test" />
+	<bean id="clientService" class="com.liying.service.ClientService"
+		factory-method="createInstance" />
+	<bean id="lookUpMethodInject" class="com.liying.service.LookUpMethodInject">
+		<lookup-method name="createCommand" bean="commandService" />
+	</bean>
 
+	<bean id="myValueCalculator" class="com.liying.service.MyValueCalculator">
+
+		<!-- arbitrary method replacement -->
+		<replaced-method name="getResult" replacer="replacementComputeValue">
+			<arg-type>String</arg-type>
+		</replaced-method>
+	</bean>
 
 </beans>

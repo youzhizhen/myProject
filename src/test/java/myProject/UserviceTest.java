@@ -1,5 +1,7 @@
 package myProject;
 
+import java.lang.reflect.Method;
+
 import javax.annotation.Resource;
 
 import junit.framework.TestCase;
@@ -10,7 +12,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.liying.service.ClientService;
+import com.liying.service.MyValueCalculator;
+import com.liying.service.ReplacementComputeValue;
 import com.liying.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,18 +24,21 @@ public class UserviceTest extends TestCase {
     
     @Resource(name = "test")
     private UserService teszt;
+    @Resource
+    private ReplacementComputeValue replacementComputeValue;
     
     @Resource
-    private ClientService clientService;
+    private MyValueCalculator myValueCalculator;
     @Test
     public void testGetUsername(){
         logger.info(teszt.ToString());
         
     }
     @Test
-    public void testFactoryMethod(){
-        logger.info(clientService.createInstance().getName());
+    public void tesMethod() throws Throwable{
+        Method method = null;
+        logger.info(replacementComputeValue.reimplement(null, method , new String []{"dfdf"}));
+    
         
     }
-
 }
