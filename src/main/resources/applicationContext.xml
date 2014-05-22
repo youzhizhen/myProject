@@ -6,13 +6,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- <context:component-scan base-package="com.liying"/> -->
-	
-	<context:annotation-config/>
-	<bean class="com.liying.service.UserService">
-	   <qualifier value="userService"></qualifier>
-	</bean>
-	
+	<context:component-scan base-package="com.liying"/>
+	<alias name="userService" alias="test"/>
+	<bean id="clientService" class="com.liying.service.ClientService" factory-method="createInstance"/>
 
 
 </beans>

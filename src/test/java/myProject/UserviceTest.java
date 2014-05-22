@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.liying.service.ClientService;
 import com.liying.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,14 +19,20 @@ public class UserviceTest extends TestCase {
     
     private static final Logger logger = Logger.getLogger(UserviceTest.class);
     
+    @Resource(name = "test")
+    private UserService teszt;
+    
     @Resource
-    private UserService userService;
+    private ClientService clientService;
     @Test
     public void testGetUsername(){
-        String name = userService.getUsername();
-        logger.info("the username is:" + name);
+        logger.info(teszt.ToString());
         
     }
-    
+    @Test
+    public void testFactoryMethod(){
+        logger.info(clientService.createInstance().getName());
+        
+    }
 
 }
