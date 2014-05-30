@@ -1,6 +1,7 @@
 package com.liying;
 
 import org.springframework.beans.factory.BeanFactoryUtils;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,5 +12,6 @@ public class Test extends BeanFactoryUtils{
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
   
         System.out.println("test the system ");
+
     }
 }
