@@ -9,7 +9,5 @@ public class Test extends BeanFactoryUtils{
         System.out.println("test this  branch ");
         System.out.println("test this liying branch");
         System.out.println("test the other branch");
-        System.out.println("test the .....");
-        System.out.println("test the >>>>>>>>>>>>>>");
     }
 }
