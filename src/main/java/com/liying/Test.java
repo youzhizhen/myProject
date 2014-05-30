@@ -16,5 +16,6 @@ public class Test extends BeanFactoryUtils{
         System.out.println("this is the liying branch");
         System.out.println("this is the master branch");
         System.out.println("this is the test branch");
+        System.out.println("this is the test branch");
     }
 }
