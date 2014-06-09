@@ -29,11 +29,7 @@ public class UserviceTest extends TestCase {
     
     @Resource
     private MyValueCalculator myValueCalculator;
-    @Test
-    public void testGetUsername(){
-        logger.info(teszt.ToString());
-        
-    }
+ 
     @Test
     public void tesMethod() throws Throwable{
         Method method = null;

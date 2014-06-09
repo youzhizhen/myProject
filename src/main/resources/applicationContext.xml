@@ -7,7 +7,6 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:component-scan base-package="com.liying" />
-	<alias name="userService" alias="test" />
 	<bean id="clientService" class="com.liying.service.ClientService"
 		factory-method="createInstance" />
 	<bean id="lookUpMethodInject" class="com.liying.service.LookUpMethodInject">
