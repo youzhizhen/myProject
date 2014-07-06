@@ -23,5 +23,8 @@ public class RoleService {
 
     public void setRoleAge(String roleAge) {
         this.roleAge = roleAge;
+        System.console();
     }
+   
+    
 }
