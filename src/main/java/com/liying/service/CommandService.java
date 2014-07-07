@@ -5,14 +5,32 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommandService {
     
-    private int i;
+    private String name;
 
-    public void setStatust(int i) {
-        this.i = i;
+    public String getName() {
+        return name;
     }
 
-    public Object execute() {
-        return "this is the commandService" + i;
+    public void setName(String name) {
+        this.name = name;
     }
-
+    
+    public void print(){
+        name = "liying";
+        System.out.println(name);
+    }
+    
+    public int printThrowException() throws Exception {
+        try{
+            return 1/0;
+        } catch(Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+    
+    public int printThrowException1() throws Exception {
+        throw new NullPointerException();
+    }
+    
 }

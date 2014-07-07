@@ -7,18 +7,23 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:component-scan base-package="com.liying" />
-	<bean id="clientService" class="com.liying.service.ClientService"
-		factory-method="createInstance" />
-	<bean id="lookUpMethodInject" class="com.liying.service.LookUpMethodInject">
-		<lookup-method name="createCommand" bean="commandService" />
-	</bean>
-
-	<bean id="myValueCalculator" class="com.liying.service.MyValueCalculator">
-
-		<!-- arbitrary method replacement -->
-		<replaced-method name="getResult" replacer="replacementComputeValue">
-			<arg-type>String</arg-type>
-		</replaced-method>
-	</bean>
+	
+	
+	<bean id="commandService" class="com.liying.service.CommandService"/>
+    
+    <bean id="handleThrowException" class="com.liying.service.HandleThrowException" />
+ 
+    <bean id="customerServiceProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+          <property name="beanNames">  
+            <list>  
+                <value>*Service</value>  
+            </list>  
+        </property> 
+        <property name="interceptorNames">
+            <list>
+                <value>handleThrowException</value>
+            </list>
+        </property>
+    </bean>
 
 </beans>
