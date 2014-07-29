@@ -13,9 +13,8 @@ public class Test extends BeanFactoryUtils{
 
     public static void main(String[] args) throws FileNotFoundException {
         
-        String name = "liying";
-        int age = 10;
-        logger.info("name: {}, age : {}", name, age);
+        String str = "";
+
         
     }
 
