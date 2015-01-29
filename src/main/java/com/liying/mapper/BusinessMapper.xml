@@ -3,6 +3,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liying.dao.BusinessDao">
 	<select id="list" resultType="PartPicture">
-		SELECT FILENAME, HASH_FILENAME HASHNAME FROM PART_PICTURE
+		SELECT PART_NO HASHNAME ,FILENAME FROM PART_PICTURE
 	</select>
 </mapper>

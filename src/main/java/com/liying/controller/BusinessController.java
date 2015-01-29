@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liying.model.PartPicture;
 import com.liying.service.BusinessService;
-import common.Test;
 
 @Controller
 @RequestMapping("/business")
@@ -22,9 +21,8 @@ public class BusinessController {
     
     @RequestMapping("test")
     @ResponseBody
-    public List<PartPicture> testSql() throws SQLException{
-        Test test = new Test();
-        test.test();
+    public List<PartPicture> testSql(String name) throws SQLException{
+        System.out.println(name);
         return businessService.getParts();
     }
 

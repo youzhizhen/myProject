@@ -22,9 +22,9 @@
 	<!-- dataSource configuration -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
-		<property name="url" value="jdbc:oracle:thin:@10.0.0.190:1521/orcl" />
-		<property name="username" value="ly" />
-		<property name="password" value="ly" />
+		<property name="url" value="jdbc:oracle:thin:@10.0.0.15:1528/orcl" />
+		<property name="username" value="sihepc" />
+		<property name="password" value="sihepc" />
 		<property name="filters" value="stat" />
 	</bean>
 
