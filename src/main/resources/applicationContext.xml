@@ -46,4 +46,16 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
+	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes" value="application/json" />
+	</bean>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonConverter" />
+			</list>
+		</property>
+	</bean>
+
 </beans>
