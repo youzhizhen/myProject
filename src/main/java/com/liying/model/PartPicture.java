@@ -2,9 +2,16 @@ package com.liying.model;
 
 public class PartPicture {
     
+    private String partNO;
     private String filename;
     private String hashname;
     
+    public String getPartNO() {
+        return partNO;
+    }
+    public void setPartNO(String partNO) {
+        this.partNO = partNO;
+    }
     public String getFilename() {
         return filename;
     }

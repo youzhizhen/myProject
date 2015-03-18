@@ -15,7 +15,18 @@ public class BusinessServiceImpl implements BusinessService {
     private BusinessDao businessDao;
 
     public List<PartPicture> getParts(){
-        return businessDao.list();
+        return null;
+    }
+
+    public String getPartName(String partNO) {
+           
+            PartPicture partPicture = new PartPicture();
+            partPicture.setFilename("test");
+            partPicture.setPartNO("test 5555555555555555555555");
+            businessDao.add(partPicture);
+            String partName = businessDao.getPartName(partNO);
+            System.out.println(partName);
+            return partName;  
     }
 
 }

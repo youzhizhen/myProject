@@ -7,15 +7,17 @@
 		<script src="js/note/main.js"></script>
 	</head>
 	<body>
-		show list:
+
+	 <div id="test1">
 	<script type="text/template" id="list">
+     show list:
 	<div>
-	{{#files}}
-     filename:{{filename}}</br>
-    {{/files}}
+	{{#users}}
+     username:{{username}}</br>
+    {{/users}}
 	</div>
 	 </script>
-	 <div id="test1"></div>
+	 </div>
 	  <input id="button" type="button" value="button" >
 	</body>
 </html>

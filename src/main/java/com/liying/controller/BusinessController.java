@@ -13,11 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import com.liying.model.PartPicture;
+import com.google.common.collect.Lists;
 import com.liying.model.User;
 import com.liying.service.BusinessService;
 
@@ -25,23 +24,20 @@ import com.liying.service.BusinessService;
 @RequestMapping("/business")
 public class BusinessController {
 
-    @Resource
+   @Resource
     private BusinessService businessService;
     
     @Resource
     private RestTemplate restTemplate;
 
-    @RequestMapping(method = RequestMethod.POST, value = "test", headers = "Accept=application/json")
+    @RequestMapping("test")
     @ResponseBody
-    public User testSql(@RequestBody User userParam) throws SQLException {
-        
+    public String testSql(@RequestBody User userParam) throws SQLException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<User> entity = new HttpEntity<User>(userParam, headers);
-        ResponseEntity<User> response = restTemplate.exchange("http://localhost:8080/sih-epc/account/test", HttpMethod.POST, entity, User.class);
-        User user = response.getBody();
-        // handle the employees
-        return user;
+        
+        HttpEntity<String> requestEntity = new HttpEntity<String>("liying",headers);
+        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8080/sih-epc/account/test", HttpMethod.POST, requestEntity, String.class);
+        return responseEntity.getBody();
     }
-
 }

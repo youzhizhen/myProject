@@ -8,16 +8,17 @@ require([ 'jquery', 'mustache' ], function($, mustache) {
 
 	$("#button").click(function() {
 		var params = {
-			name : "liying"
+				username : "liying"
 		};
 		var url = "business/test";
 		$.ajax({
 			type : "POST",
 			url : url,
-			data : params,
+			data : JSON.stringify(params),
+			contentType :'application/json',
 			success : function(datas, status, XHR) {
 				var data = {
-					files:datas,	
+					users:datas,	
 				};
 				render(data);
 			},

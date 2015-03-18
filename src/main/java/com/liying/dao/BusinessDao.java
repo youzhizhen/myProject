@@ -7,5 +7,9 @@ import com.liying.model.PartPicture;
 public interface BusinessDao {
     
     List<PartPicture> list();
+    
+    String getPartName(String partNO);
+    
+    void add(PartPicture partPicture);
 
 }

@@ -5,4 +5,12 @@
 	<select id="list" resultType="PartPicture">
 		SELECT PART_NO HASHNAME ,FILENAME FROM PART_PICTURE
 	</select>
+	
+    <select id="getPartName" resultType="string">
+		SELECT PART_NAME_ZH FROM PART WHERE PART_NO=#{partNO}
+	</select>
+	
+	<insert id="add">
+		INSERT INTO Z_PART_PICTURE(PART_NO, FILENAME) VALUES(#{partNO}, #{filename})
+	</insert>
 </mapper>

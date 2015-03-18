@@ -12,5 +12,7 @@ import com.liying.model.PartPicture;
 public interface BusinessService {
     
     List<PartPicture> getParts();
+    
+    String getPartName(String partNO);
 
 }
