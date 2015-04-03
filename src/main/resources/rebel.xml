@@ -4,6 +4,8 @@
 	<classpath>
 		<dir name="D:/WorkSpace/myProject/target/classes">
 		</dir>
+		<dir name="D:/WorkSpace/myProject/target/test-classes">
+		</dir>
 	</classpath>
 
 	<web>

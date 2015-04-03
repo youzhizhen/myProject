@@ -11,5 +11,7 @@ public interface BusinessDao {
     String getPartName(String partNO);
     
     void add(PartPicture partPicture);
+    
+    List<String> batchInsert(List<PartPicture> list);
 
 }

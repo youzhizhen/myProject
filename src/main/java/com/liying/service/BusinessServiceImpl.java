@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.google.common.collect.Lists;
 import com.liying.dao.BusinessDao;
 import com.liying.model.PartPicture;
 
@@ -14,19 +15,24 @@ public class BusinessServiceImpl implements BusinessService {
     @Resource
     private BusinessDao businessDao;
 
-    public List<PartPicture> getParts(){
-        return null;
+
+    public void doSomething(String name, int age) {
+        System.out.println("this is do  something...");
+        
     }
 
-    public String getPartName(String partNO) {
-           
-            PartPicture partPicture = new PartPicture();
-            partPicture.setFilename("test");
-            partPicture.setPartNO("test 5555555555555555555555");
-            businessDao.add(partPicture);
-            String partName = businessDao.getPartName(partNO);
-            System.out.println(partName);
-            return partName;  
+    public List<String> batchInsert() {
+        
+        List<PartPicture> list = Lists.newArrayList();
+        PartPicture p1 = new PartPicture();
+        p1.setPartNO("11");
+        
+        PartPicture p2 = new PartPicture();
+        p2.setPartNO("22");
+        
+        list.add(p1);
+        list.add(p2);
+        return businessDao.batchInsert(list);
     }
 
 }

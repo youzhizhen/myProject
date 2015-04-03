@@ -15,45 +15,33 @@
     http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.1.xsd"
 	default-autowire="byName" default-init-method="doInit"
 	default-destroy-method="doDestroy">
-
-	<!-- scan all annotation -->
-	<context:component-scan base-package="com.liying" />
-
-	<!-- dataSource configuration -->
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-		<property name="url" value="jdbc:oracle:thin:@10.0.0.15:1528/orcl" />
-		<property name="username" value="sihepc" />
-		<property name="password" value="sihepc" />
-		<property name="filters" value="stat" />
+		<!-- SET default mail properties -->
+<!-- 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.qq.com" />
+		<property name="username" value="1030371145@qq.com" />
+		<property name="password" value="liying890424" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="port" value="465" />
+		<property name="javaMailProperties">
+			<props>
+			    使用ssl协议的配置然后port为456
+			    没有使用ssl协议的无需配置下面两个属性，然后port为25
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.socketFactory.fallback">false</prop>
+				
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.timeout">5000</prop>
+			</props>
+	     </property>
 	</bean>
-
-    <!--spring transaction configuration  -->
-   <!--  <tx:annotation-driven transaction-manager="transactionManager" /> -->
+    You can have some pre-configured messagess also which are ready to send
+    <bean id="preConfiguredMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="to" value="1030371145@qq.com,ying.li@servision.com.cn"></property>
+        <property name="from" value="1030371145@qq.com"></property>
+        <property name="subject" value="FATAL - Application crash. Save your job !!"/>
+    </bean>
     
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" propagation="REQUIRED" />
-        </tx:attributes>
-    </tx:advice>
-    
-    <aop:config>
-        <aop:pointcut id="interceptorPointCuts" expression="execution(* com.liying.service.*.*(..))" />
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />        
-    </aop:config>      
-    
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-	<!-- mybatis sessionFactory configuration-->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis-config.xml" />
-		<property name="mapperLocations" value="classpath:com/liying/mapper/**/*Mapper.xml" />
-		<property name="typeAliasesPackage" value="com.liying.model" />
-	</bean>
-
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.liying.dao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-	</bean>
+    <bean id="mailUtils" class="com.liying.util.MailUtils">
+    	<property name="preConfiguredMessage" ref="preConfiguredMessage"></property>
+    </bean> -->
 </beans>

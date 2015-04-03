@@ -13,4 +13,7 @@
 	<insert id="add">
 		INSERT INTO Z_PART_PICTURE(PART_NO, FILENAME) VALUES(#{partNO}, #{filename})
 	</insert>
+		
+	<insert id="batchInsert" parameterType="list">
+	</insert>
 </mapper>

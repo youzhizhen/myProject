@@ -17,7 +17,7 @@ public class TestBusinessService {
     private BusinessService businessService;
     @Test
     public void testGetParts(){
-        businessService.getPartName("5801271629");
+        
     }
 
 }
